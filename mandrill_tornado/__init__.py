@@ -1,9 +1,12 @@
 import json
 from tornado.httpclient import AsyncHTTPClient
+from tornado import gen
+
 
 DEFAULT_API_ENDPOINT = "https://mandrillapp.com/api/1.0/messages/send.json"
 
 
+@gen.coroutine
 def send(api_key, recipient, subject,
          fromemail, fromname, message,
          name='You', extra={}, mandrill_api=DEFAULT_API_ENDPOINT):
