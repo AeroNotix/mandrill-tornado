@@ -22,7 +22,7 @@ def send(api_key, recipient, subject,
             }
         }
     }
-    request_data.merge(extra)
+    request_data.update(extra)
     response = yield http_client.fetch(
         mandrill_api,
         method='POST',
